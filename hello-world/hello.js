@@ -1,4 +1,3 @@
-/* JavaScript Basics Part I */
-var name = "Sabrina";
+/* JavaScript Basics Part II */
+var name = process.argv[2];
 console.log("Hi there! " + name);
-console.log(typeof name);
