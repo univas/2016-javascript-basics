@@ -1,7 +1,10 @@
 /* JavaScript Basics Part II */
-var name = getName();
-console.log("Hi there! " + name);
+sayHello(getName());
 
 function getName() {
     return process.argv[2] || "";
+}
+
+function sayHello(name) {
+   console.log("Hi there! " + name);    
 }
