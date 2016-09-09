@@ -2,15 +2,18 @@
 console.log("Total: " + sum(getNumbers()));
 
 function getNumbers() {
-    var numbers = [];
-    for (var i = 2; i < process.argv.length; i++) {
-        var stringNumber = process.argv[i];
-        var number = parseFloat(stringNumber);
-        if(!isNaN(number)) {
-            numbers.push(number);
-        }
-    }
+    var numbers = getArguments()
+                  .filter(isNumber)
+                  .map(stringToNumber);
     return numbers;
+}
+
+function isNumber(value) {
+   return !isNaN(value);
+}
+
+function stringToNumber(stringNumber) {
+    return parseFloat(stringNumber);
 }
 
 function sum(numbers) {
@@ -20,4 +23,8 @@ function sum(numbers) {
     };
     numbers.forEach(addToTotal);
     return total;
+}
+
+function getArguments() {
+    return process.argv.slice(2);
 }
